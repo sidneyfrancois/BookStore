@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace BookStore.Models
+namespace BookStore.Domain
 {
     public class Autor
     {
@@ -10,11 +9,7 @@ namespace BookStore.Models
             this.Livros = new List<Livro>();
         }
         
-        [Key]
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "*")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Campo Inválido")]
         public string Nome { get; set; }
 
         public ICollection<Livro> Livros { get; set; }
