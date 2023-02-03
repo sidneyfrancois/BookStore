@@ -135,6 +135,10 @@
     <Compile Include="Mapping\AutorMap.cs" />
     <Compile Include="Mapping\CategoriaMap.cs" />
     <Compile Include="Mapping\LivroMap.cs" />
+    <Compile Include="Migrations\202302032107426_v1.cs" />
+    <Compile Include="Migrations\202302032107426_v1.designer.cs">
+      <DependentUpon>202302032107426_v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\VincularLivroAutorViewModel.cs" />
@@ -197,6 +201,11 @@
       <Project>{e38ff5ce-60b3-496f-af48-a750dfa5028a}</Project>
       <Name>BookStore.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202302032107426_v1.resx">
+      <DependentUpon>202302032107426_v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

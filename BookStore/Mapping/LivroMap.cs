@@ -13,7 +13,8 @@ namespace BookStore.Mapping
             HasKey(x => x.Id);
 
             Property(x => x.Nome).HasMaxLength(60).IsRequired();
-            Property(x => x.ISBN).HasMaxLength(32).IsRequired()
+            Property(x => x.ISBN).HasMaxLength(32).IsRequired();
+            Property(x => x.DataLancamento).IsRequired();
         }
     }
 }

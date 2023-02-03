@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain;
+using BookStore.Mapping;
 using System.Data.Entity;
 
 namespace BookStore.Context
@@ -13,5 +14,11 @@ namespace BookStore.Context
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Livro> Livros { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new AutorMap());
+            modelBuilder.Configurations.Add(new CategoriaMap());
+            modelBuilder.Configurations.Add(new LivroMap());
+        }
     }
 }
