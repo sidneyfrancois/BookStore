@@ -9,7 +9,7 @@ namespace BookStore.Domain
             this.Livos = new List<Livro>();
         }
 
-        public int Id { get; set; 
+        public int Id { get; set; }
         public string Nome { get; set; }
 
         public ICollection<Livro> Livos { get; set; }
