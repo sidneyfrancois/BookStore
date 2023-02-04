@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace BookStore.Controllers
 {
     [RoutePrefix("autores")]
-    [LogActionFilter()]
+    //[LogActionFilter()]
     public class AutorController : Controller
     {
         [Route("listar")]
