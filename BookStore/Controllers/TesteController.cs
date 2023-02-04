@@ -3,8 +3,15 @@ using System.Web.Mvc;
 
 namespace BookStore.Controllers
 {
+    [RoutePrefix("teste")]
+    [Route("{Action=Principal}")]
     public class TesteController : Controller
     {
+        public string Principal()
+        {
+            return "Ok! Da action principal ao invés de index";
+        }
+
         public ViewResult Dados(int Id)
         {
             var autor = new Autor
@@ -31,6 +38,18 @@ namespace BookStore.Controllers
         public JsonResult ActionDois(Autor autor)
         {
             return Json(autor);
+        }
+
+        [Route("minharota/{id:int?}")]
+        public string MinhaAction(int? id)
+        {
+            return "Ok! Route arrived";
+        }
+
+        [Route("~/rotaignorada")]
+        public string MinhaAction2()
+        {
+            return "Ok! Action2";
         }
     }
 }
