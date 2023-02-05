@@ -1,47 +1,78 @@
-﻿using BookStore.Domain;
+﻿using BookStore.Context;
+using BookStore.Domain;
 using BookStore.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace BookStore.Repositories
 {
     public class AutorRepository : IAutorRepository
     {
+        private readonly BookStoreDataContext _db = new BookStoreDataContext();
+
         public bool Create(Autor autor)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                _db.Autores.Add(autor);
+                _db.SaveChanges();
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Autor> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Autor Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Autor GetByName(string name)
-        {
-            throw new NotImplementedException();
         }
 
         public bool Update(Autor autor)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // compare memory entity with entity in db
+                _db.Entry<Autor>(autor).State = EntityState.Modified;   
+                _db.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
+        public void Delete(int id)
+        {
+            var autor = _db.Autores.Find(id);
+            _db.Autores.Remove(autor);
+            _db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _db.Dispose();
+        }
+
+        public List<Autor> Get()
+        {
+            return _db.Autores.ToList();
+        }
+
+        public Autor Get(int id)
+        {
+            return _db.Autores.Find(id);
+        }
+
+        public List<Autor> GetByName(string name)
+        {
+            return _db.Autores
+                .Where(x => x.Nome.Contains(name))
+                .ToList();
+        }
+
     }
 }
