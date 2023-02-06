@@ -162,6 +162,7 @@
     <Compile Include="Repositories\Contracts\IAutorRepository.cs" />
     <Compile Include="RoutesConstraints\ValuesConstraint.cs" />
     <Compile Include="ViewModels\CriarLivroViewModel.cs" />
+    <Compile Include="ViewModels\EditarLivroViewModel.cs" />
     <Compile Include="ViewModels\VincularLivroAutorViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +207,7 @@
     <Content Include="Views\Autor\Edit.cshtml" />
     <Content Include="Views\Autor\Delete.cshtml" />
     <Content Include="Views\Livro\Create.cshtml" />
+    <Content Include="Views\Livro\Partials\EditarLivroPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

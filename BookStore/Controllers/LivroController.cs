@@ -14,7 +14,7 @@ namespace BookStore.Controllers
         public ActionResult Create()
         {
             var categorias = _db.Categorias.ToList();
-            var model = new CriarLivroViewModel
+            var model = new EditarLivroViewModel()
             {
                 Nome = "",
                 ISBN = "",
@@ -27,7 +27,7 @@ namespace BookStore.Controllers
 
         [Route("criar")]
         [HttpPost]
-        public ActionResult Create(CriarLivroViewModel model)
+        public ActionResult Create(EditarLivroViewModel model)
         {
             return View();
         }
